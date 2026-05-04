@@ -1,0 +1,3 @@
+method,steps,num_images,device,elapsed_sec,sec_per_image,saved
+ddpm,1000,16,mps,303.047,18.940,samples/ddpm_1000_steps.png
+ddim,100,16,mps,29.243,1.828,samples/ddim_100_steps.png

@@ -1,0 +1,54 @@
+dataset:
+  name: "huggan/few-shot-cat"
+  split: "train"
+  image_column: "image"
+  resolution: 64
+  center_crop: true
+  horizontal_flip: true
+
+training:
+  output_dir: "outputs"
+  checkpoint_dir: "checkpoints"
+  seed: 42
+  train_batch_size: 8
+  num_epochs: 300
+  learning_rate: 0.00005
+  lr_warmup_steps: 100
+  gradient_accumulation_steps: 1
+  mixed_precision: "no"
+  use_ema: true
+  ema_decay: 0.9999
+  save_every_epochs: 50
+  validation_every_epochs: 25
+  num_validation_images: 16
+  num_workers: 0
+  max_train_samples: null
+
+model:
+  sample_size: 64
+  in_channels: 3
+  out_channels: 3
+  layers_per_block: 2
+  block_out_channels: [64, 128, 128, 256]
+  down_block_types:
+    - "DownBlock2D"
+    - "DownBlock2D"
+    - "AttnDownBlock2D"
+    - "DownBlock2D"
+  up_block_types:
+    - "UpBlock2D"
+    - "AttnUpBlock2D"
+    - "UpBlock2D"
+    - "UpBlock2D"
+
+diffusion:
+  num_train_timesteps: 1000
+  beta_schedule: "squaredcos_cap_v2"
+  prediction_type: "epsilon"
+
+sampling:
+  seed: 52
+  num_images: 16
+  batch_size: 16
+  ddpm_steps: 1000
+  ddim_steps: 100

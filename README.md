@@ -123,3 +123,4 @@ saved=samples/ddim_100.png
 
 ## Демо
 
+Демо видео: [ссылка](https://disk.360.yandex.ru/i/0p27_EvgwgF48A)

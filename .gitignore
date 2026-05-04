@@ -1,0 +1,10 @@
+temp/
+checkpoints/
+__pycache__/
+*.py[cod]
+.DS_Store
+.venv/
+logs/
+*.pt
+*.pth
+*.ckpt
